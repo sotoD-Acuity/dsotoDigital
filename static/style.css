@@ -7,27 +7,27 @@ body {
 }
 
 h1 {
-    font-size: 18px;
+    font-size: 1.5rem;
     font-family: Consolas, Courier_New, monospace;
     text-align: center;
     font-weight: lighter;
 }
 
 figure {
-    padding:2px;
+    padding: 0.125em;
     margin:0;
 }
 
 header {
     background-color: #000000;
     color: white;
-    padding: 10px;
+    padding: 1rem;
     text-align: center;
 }
 
 nav {
     background-color: #00ff99;
-    padding: 5px;
+    padding: 0.5rem;
     text-align: center;
 }
 
@@ -38,11 +38,11 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #555;
+    background-color: #757575;
 }
 
 section {
-    padding: 20px;
+    padding: 1.5rem;
     text-align: center;
 }
 
