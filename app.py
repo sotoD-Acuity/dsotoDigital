@@ -10,5 +10,9 @@ def index():
 def about():
     return render_template('index2.html')
 
+@app.route('/canvas')
+def canvas():
+    return render_template('sketchDisplay.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
