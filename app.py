@@ -8,7 +8,7 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('index2.html')
+    return render_tempslate('index2.html')
 
 @app.route('/canvas')
 def canvas():

@@ -6,24 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Diego A. Soto">
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/tgl7nhh.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/lib/p5.min.js"></script>
-    <script src="/lib/p5.sound.min.js"></script>
+    <script src="/static/lib/p5.min.js"></script>
+    <script src="/static/lib/p5.sound.min.js"></script>
     <title>D. Soto</title>
 </head>
 
 <body>
-    <header class = "block md:flex">
+    <div id="sketch-container">
+        <script src="/static/sketches/sketch.js"></script>
+    </div>
+    <header class = "block lg:justify-evenly lg:flex">
 	    <figure class="w-auto md:w-1/2 md:h-1/5 lg:w-1/2">
             <image src="/static/media/dsotoClear.png">
         </figure>
-        <div class="py-0 text-center lg:px-12 lg:pt-16">
-            <h1 class="text-lg lg:text-4xl font-italic text-cyan-300 hover:text-lime-300">Nosce Te Ipsum | Know thyself</h1>
+        
+        <div class="py-0 justify-center lg:px-16 lg:pt-16">
+            <h1 class="text-lg lg:text-3xl font-italic text-cyan-300 hover:text-orange-200">Nosce Te Ipsum | Know thyself</h1>
             <h1 class="text-lg lg:text-4xl font-italic text-cyan-300">2001 - Present</h1>
         </div>
     </header>   
-    <div class="grid md:flex lg:flex lg:justify-evenly">
+    <div class="block py-3 md:flex lg:flex lg:justify-evenly">
         <button class="rounded-sm lg:px-9 bg-cyan-300 hover:bg-neutral-950 hover:ring text-neutral-950 hover:text-cyan-300 active:ring-cyan-300" href="#">Home</button>    
         <button class="rounded-sm lg:px-9 bg-cyan-300 hover:bg-neutral-950 hover:ring text-neutral-950 hover:text-cyan-300 active:ring-cyan-300" href="#">About me!</button>
         <button class="rounded-sm lg:px-9 bg-cyan-300 hover:bg-neutral-950 hover:ring text-neutral-950 hover:text-cyan-300 active:ring-cyan-300" href="#">Experiences</button>
@@ -55,7 +60,7 @@
         <p class="hover:bg-neutral-950 hover:text-fuchsia-300">
             Besides being an educator and a student, I try to be genuine and use my time to get to know what people genuinely care about....
             but I also like to be a musician, a creator,
-            a programmer, a leader, a learner, a teacher, a philosopher, a reader, a gamer, a nerd, a cinephile,<
+            a programmer, a leader, a learner, a teacher, a philosopher, a reader, a gamer, a nerd, a cinephile,
             a pacifist, a humanist, a dreamer, an optimistic futurist... and still discovering that I can be so much more.
             <strong> I know what you're probably thinking: "Pretentious should probably be up there. Latin and a bunch of labels? Think you're deep?..."</strong> and maybe it's well deserved.
             A list of labels are one thing. Hard proofs... actions, knowledge, & exeperiences, are another.
@@ -63,7 +68,6 @@
             Unapologetically, genuinely, just me. Why? Dive into my page and let me show you.
         </p>
     </section>
-    <script src="/static/sketches/sketch.js"></script>
 
     <footer class="fixed text-sm">
         <p>&copy; 2024 Diego A. Soto All rights reserved.</p>

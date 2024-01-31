@@ -5,8 +5,8 @@
 
 
 function setup() {
-  let canvas = createCanvas(600, 600);
-  canvas.parent('sketch-container');
+  let canvas = createCanvas(windowWidth/10, windowHeight/10);
+  canvas.parent('darkSideSmall');
 }
 
 function draw() {
@@ -18,20 +18,20 @@ function draw() {
   //
   stroke(255);
   fill(255);
-  let pyramidAxis = 300;
-  let pyramidTip = 100;
+  let pyramidAxis = width/2;
+  let pyramidTip = height/5;
   //(300,100) at the top of the pyramid
 
-  let pyramidFloor = 450;
+  let pyramidFloor = (3*height)/4;
   // vertices at (150,450) and (500,450) & (100,400)
   
 
   // Pyramid Top
-  line(pyramidAxis,pyramidTip, 100,400); // left-most line
-  line(pyramidAxis,pyramidTip, 150,450); // diagonal from pyramidTip 2 pyramidFloor
-  line(pyramidAxis,pyramidTip, 500,450); // right-most line
+  line(pyramidAxis,pyramidTip, width/6,(2*height)/3); // left-most line
+  line(pyramidAxis,pyramidTip, width/4,(3*height)/4); // diagonal from pyramidTip 2 pyramidFloor
+  line(pyramidAxis,pyramidTip, (5*width)/6,(3*height)/4); // right-most line
   
-  // Pyramis Bottom
+  // Pyramid Bottom
   line(150,pyramidFloor, 500,pyramidFloor); // Bottom Straight Line
   line(150,pyramidFloor, 100,400); // Bottom line to left-most vertex
 
