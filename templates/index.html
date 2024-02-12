@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Diego A. Soto">
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/src/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/tgl7nhh.css">
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="/static/lib/p5.min.js"></script>
     <script src="/static/lib/p5.sound.min.js"></script>
     <title>D. Soto</title>
 </head>
 
 <body>
+    <div id="sketch-container" class="block">
+        <script src="/static/sketches/clock.js"></script>
+    </div>
     <header class = "block lg:justify-evenly lg:flex">
 	    <figure class="w-auto md:w-1/2 md:h-1/5 lg:w-1/2">
             <image src="/static/media/dsotoClear.png">
         </figure>
-        
         <div class="py-0 justify-center lg:px-16 lg:pt-16">
             <h1 class="text-lg lg:text-3xl italic text-cyan-300 hover:text-orange-200">Nosce Te Ipsum | Know thyself</h1>
             <h1 class="text-lg lg:text-4xl text-cyan-300">2001 - Present</h1>
@@ -36,9 +37,6 @@
         
     </div>
     <section class="text-md text-left text-cyan-300 py-3 inline lg:block lg:text-center">
-        <div id="sketch-container">
-            <script src="/static/sketches/sketch.js"></script>
-        </div>
         <p class="hover:bg-neutral-950 hover:text-fuchsia-300">Here's a bit to have to say about myself.</p>
         <p class="hover:bg-neutral-950 hover:text-fuchsia-300">
             My name is Diego A. Soto, and I'm lucky enough to be alive in the 21st century.
