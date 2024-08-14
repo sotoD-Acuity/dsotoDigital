@@ -58,7 +58,7 @@ footer {
 }
 
 #sketch-container canvas{
-    border: 0px #f6bb7e;
+    border: 1px #ffffff;
     max-width: auto;
     max-height: auto;
 }

@@ -1,5 +1,5 @@
 function setup() {
-  let canvas = createCanvas(windowWidth, 0.50 * windowHeight);
+let canvas = createCanvas(windowWidth, 0.25 * windowHeight);
   canvas.parent('sketch-container');
 }
 
@@ -24,7 +24,7 @@ function draw() {
   background(0);
 
   // Draw the background hexagon
-  let c = color('#afe6ea');
+  let c = color('#0e1a40');
   let hexVerticies = drawPolygon(6, centerX, centerY, hexagonRadius, hexagonAngle, c);
   vectorSide1 = createVector(hexVerticies[1][0] - hexVerticies[0][0], hexVerticies[1][1] - hexVerticies[0][1]);
   vectorSide2 = createVector(hexVerticies[2][0] - hexVerticies[1][0], hexVerticies[2][1] - hexVerticies[1][1]);
@@ -36,19 +36,19 @@ function draw() {
 
 
   // Fill in the hexagon for the current hour
-  c = color(50, 50, 50);
+  c = color('#1a1a1a');
   fillHourTriangle(timeHour, centerX, centerY, hexagonRadius, HrAngle, c);
 
   c = color(255, 255, 255);
   drawSecondsPerimeter(timeSecond, hexVerticies, sideVectors, c);
 
   // Draw the hours passed
-  c = color(50, 50, 50);
+  c = color(0, 42, 250);
   hoursPassed(timeHour, hexagonRadius, sideVectors, c);
 
   drawTicks(hexagonRadius);
 
-  c = color(0, 255, 255);
+  c = color(0, 42, 250);
   drawMinutes(timeMinute, hexagonRadius, c);
 }
 
@@ -146,9 +146,9 @@ function drawSecondsPerimeter(currentSecond, hexVerticies, sideVectors, c) {
 }
 
 function hoursPassed(currentHour, radius, sideVectors, c) {
-  push();
+  // push();
   stroke(c);
-  strokeWeight(2);
+  strokeWeight(1.5);
   let xDraw;
   let yDraw;;
   if (currentHour == 1) {
@@ -398,7 +398,8 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
 
-  } else if (currentHour == 13) {
+  } 
+    else if (currentHour == 13) {
     xDraw = 0 + 0.8 * radius * cos(0);
     yDraw = 0 + 0.8 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .8, yDraw + sideVectors[0].y * .8);
@@ -411,6 +412,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -423,6 +425,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -435,8 +438,9 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
   } else if (currentHour == 14) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -451,6 +455,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -463,6 +468,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -475,11 +481,12 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
   } else if (currentHour == 15) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -494,6 +501,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -506,6 +514,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -518,14 +527,15 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
   } else if (currentHour == 16) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -540,6 +550,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -552,6 +563,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -564,17 +576,18 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
   } else if (currentHour == 17) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -589,6 +602,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -601,6 +615,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -613,20 +628,21 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
     xDraw = 0 + 0.8 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .8, yDraw + sideVectors[4].y * .8);
   } else if (currentHour == 18) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -641,6 +657,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -653,6 +670,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -665,23 +683,24 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
     xDraw = 0 + 0.8 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .8, yDraw + sideVectors[4].y * .8);
     xDraw = 0 + 0.6 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .6, yDraw + sideVectors[4].y * .6);
   } else if (currentHour == 19) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -696,6 +715,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -708,6 +728,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -720,26 +741,27 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
     xDraw = 0 + 0.8 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .8, yDraw + sideVectors[4].y * .8);
     xDraw = 0 + 0.6 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .6, yDraw + sideVectors[4].y * .6);
     xDraw = 0 + 0.4 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .4, yDraw + sideVectors[4].y * .4);
   } else if (currentHour == 20) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -754,6 +776,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -766,6 +789,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -778,29 +802,30 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
     xDraw = 0 + 0.8 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .8, yDraw + sideVectors[4].y * .8);
     xDraw = 0 + 0.6 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .6, yDraw + sideVectors[4].y * .6);
     xDraw = 0 + 0.4 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .4, yDraw + sideVectors[4].y * .4);
     xDraw = 0 + 0.2 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .2, yDraw + sideVectors[4].y * .2);
   } else if (currentHour == 21) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -815,6 +840,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -827,6 +853,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -839,32 +866,33 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
     xDraw = 0 + 0.8 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .8, yDraw + sideVectors[4].y * .8);
     xDraw = 0 + 0.6 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .6, yDraw + sideVectors[4].y * .6);
     xDraw = 0 + 0.4 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .4, yDraw + sideVectors[4].y * .4);
     xDraw = 0 + 0.2 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .2, yDraw + sideVectors[4].y * .2);
     xDraw = 0 + 0.8 * radius * cos(5 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(5 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(5 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[5].x * .8, yDraw + sideVectors[5].y * .8);
   } else if (currentHour == 22) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -879,6 +907,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -891,6 +920,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -903,35 +933,36 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
     xDraw = 0 + 0.8 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .8, yDraw + sideVectors[4].y * .8);
     xDraw = 0 + 0.6 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .6, yDraw + sideVectors[4].y * .6);
     xDraw = 0 + 0.4 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .4, yDraw + sideVectors[4].y * .4);
     xDraw = 0 + 0.2 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .2, yDraw + sideVectors[4].y * .2);
     xDraw = 0 + 0.8 * radius * cos(5 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(5 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(5 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[5].x * .8, yDraw + sideVectors[5].y * .8);
     xDraw = 0 + 0.6 * radius * cos(5 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(5 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(5 * TWO_PI / 6) - 5;
     line(xDraw, yDraw, xDraw + sideVectors[5].x * .6, yDraw + sideVectors[5].y * .6);
   } else if (currentHour == 23) {
     xDraw = 0 + 0.8 * radius * cos(0);
@@ -946,6 +977,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(0);
     yDraw = 0 + 0.2 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .2, yDraw + sideVectors[0].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .8, yDraw + sideVectors[1].y * .8);
@@ -958,6 +990,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[1].x * .2, yDraw + sideVectors[1].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.8 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .8, yDraw + sideVectors[2].y * .8);
@@ -970,38 +1003,39 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     xDraw = 0 + 0.2 * radius * cos(2 * TWO_PI / 6);
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
+
     xDraw = 0 + 0.8 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(3 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .8, yDraw + sideVectors[3].y * .8);
     xDraw = 0 + 0.6 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(3 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .6, yDraw + sideVectors[3].y * .6);
     xDraw = 0 + 0.4 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(3 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .4, yDraw + sideVectors[3].y * .4);
     xDraw = 0 + 0.2 * radius * cos(3 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(3 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[3].x * .2, yDraw + sideVectors[3].y * .2);
     xDraw = 0 + 0.8 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(4 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .8, yDraw + sideVectors[4].y * .8);
     xDraw = 0 + 0.6 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(4 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .6, yDraw + sideVectors[4].y * .6);
     xDraw = 0 + 0.4 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(4 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .4, yDraw + sideVectors[4].y * .4);
     xDraw = 0 + 0.2 * radius * cos(4 * TWO_PI / 6);
-    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.2 * radius * sin(4 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[4].x * .2, yDraw + sideVectors[4].y * .2);
     xDraw = 0 + 0.8 * radius * cos(5 * TWO_PI / 6);
-    yDraw = 0 + 0.8 * radius * sin(5 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.8 * radius * sin(5 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[5].x * .8, yDraw + sideVectors[5].y * .8);
     xDraw = 0 + 0.6 * radius * cos(5 * TWO_PI / 6);
-    yDraw = 0 + 0.6 * radius * sin(5 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.6 * radius * sin(5 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[5].x * .6, yDraw + sideVectors[5].y * .6);
     xDraw = 0 + 0.4 * radius * cos(5 * TWO_PI / 6);
-    yDraw = 0 + 0.4 * radius * sin(5 * TWO_PI / 6) + 5;
+    yDraw = 0 + 0.4 * radius * sin(5 * TWO_PI / 6) -5;
     line(xDraw, yDraw, xDraw + sideVectors[5].x * .4, yDraw + sideVectors[5].y * .4);
   }
   pop();
@@ -1023,7 +1057,7 @@ function drawTicks(radius) {
 
 function drawMinutes(currentMinute, radius, c) {
   push();
-  stroke(255, 170, 255);
+  stroke(c);
   strokeWeight(2);
   fill(c);
   for (let i = 1; i < currentMinute + 1; i++) {
