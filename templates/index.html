@@ -7,33 +7,32 @@
     <meta name="author" content="Diego A. Soto">
     <link rel="stylesheet" href="/static/src/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/tgl7nhh.css">
+    <!--script src="https://cdn.tailwindcss.com"></script-->
 
     <script src="/static/lib/p5.min.js"></script>
     <script src="/static/lib/p5.sound.min.js"></script>
     <title>D. Soto</title>
 </head>
 
-<body>
-    
+<body class="bg-black max-h-full">
 
-    <header class = "grid ">
-	    <div id="sketch-container" class="block">
+    <div class="flex-col space-y-5 translate-x-[20%] sm:flex sm:-translate-x-[42%]">
+        
+        <div id="sketch-container" class="absolute w-full top-5">
             <script src="/static/sketches/clock.js"></script>
         </div>
 
-        <div class="py-0 justify-center lg:px-16 lg:pt-16">
-            <h1 class="text-lg lg:text-3xl italic text-cyan-300 hover:text-orange-200">Nosce Te Ipsum | Know thyself</h1>
-        </div>
+        <h1 class="absolute -translate-y-5 w-full sm:left-[60%] sm:top-[5%] sm:text-6xl text-cyan-300 font-thin italic font-sans">Nosce te ipsum | Know Thyself</h1>
 
-        <figure class="w-auto md:w-1/2 md:h-1/5 lg:w-1/2">
-            <image src="/static/media/dsotoClear.png">
-        </figure>
+        <image class="absolute -translate-y-4 -translate-x-40 scale-[50%] md:left-[52%] md:top-[10%] md:scale-[42%]" src="/static/media/dsotoClear.png"></image>
+    </div>
 
-    </header>
+    <main>
+    </main>
 
-    <footer class="fixed text-sm">
-        <p>&copy; 2024 Diego A. Soto All rights reserved.</p>
+    <footer class="absolute text-center bottom-0 bg-slate-950 w-full text-nowrap text-cyan-50 ">&copy; 2024 Diego A. Soto | All Rights Reserved.
     </footer>
+
 </body>
 
 </html>

@@ -43,12 +43,12 @@ function draw() {
   drawSecondsPerimeter(timeSecond, hexVerticies, sideVectors, c);
 
   // Draw the hours passed
-  c = color(0, 42, 250);
+  c = color(250, 42, 0);
   hoursPassed(timeHour, hexagonRadius, sideVectors, c);
 
   drawTicks(hexagonRadius);
 
-  c = color(0, 42, 250);
+  c = color(250, 42, 0);
   drawMinutes(timeMinute, hexagonRadius, c);
 }
 
@@ -1071,4 +1071,9 @@ function drawMinutes(currentMinute, radius, c) {
   let yDraw = 1.15 * radius * sin(currentMinute * TWO_PI / 60);
   ellipse(xDraw, yDraw, 5, 5);
   pop();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, 0.25* windowHeight);
+  draw();
 }

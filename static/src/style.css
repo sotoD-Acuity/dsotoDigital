@@ -436,6 +436,7 @@ img,
 video {
   max-width: 100%;
   height: auto;
+  padding: 5px;
 }
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
@@ -738,10 +739,10 @@ section {
 }
 
 footer {
-  background-color: #111;
-  color: white;
+  background-color: #1a1a1a;
+  color: #757575;
   text-align: center;
-  padding: 2px;
+  padding: 0px;
   position: absolute;
   bottom: 0;
   width: 100%;
