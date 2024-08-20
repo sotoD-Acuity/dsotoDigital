@@ -1,11 +1,95 @@
+// Author: Diego A. Soto
+// Description: A 24hr analog clock and animated background for dsotodigital.com
+
+let bezierStartX;
+let bezierStartY;
+let bezierControl1X;
+let bezierControl1Y;
+let bezierControl2X;
+let bezierControl2Y;
+let bezierEndX;
+let bezierEndY;
+//
+let vertical_navWave;
+let vertical_lagWave;
+let vertical_lagWave2;
+
+class animated_bezier {
+  constructor(xStart, yStart, xControl1, yControl1, xControl2, yControl2, xEnd, yEnd, delta1, delta2, color, weight) {
+    this.xStart = xStart;
+    this.yStart = yStart;
+    this.xControl1 = xControl1;
+    this.yControl1 = yControl1;
+    this.xControl2 = xControl2;
+    this.yControl2 = yControl2;
+    this.xEnd = xEnd;
+    this.yEnd = yEnd;
+
+    this.delta1 = delta1;
+    this.delta2 = delta2;
+
+    this.strokeColor = color;
+    this.strokeWeight = weight;
+  }
+
+  stepControl1x(amplitude) {
+    if (this.xControl1 > this.xStart + amplitude || this.xControl1 < this.xStart - amplitude) {
+      this.delta1 = -this.delta1;
+    }
+    this.xControl1 += this.delta1;
+  }
+
+  stepControl2x(amplitude) {
+    if (this.xControl2 > this.xEnd + amplitude || this.xControl2 < this.xEnd - amplitude) {
+      this.delta2 = -this.delta2;
+    }
+    this.xControl2 += this.delta2;
+  }
+
+  update() {
+    this.stepControl1x(50);
+    this.stepControl2x(50);
+  }
+
+  draw() {
+    push();
+    translate(-windowWidth/10, windowHeight/8);
+    stroke(this.strokeColor);
+    strokeWeight(this.strokeWeight);
+    noFill();
+    //fill(random(0, 255), random(0, 255), random(0, 255));
+    bezier(this.xStart, this.yStart, this.xControl1, this.yControl1, this.xControl2, this.yControl2, this.xEnd, this.yEnd);
+    pop();
+  }
+}
+
 function setup() {
-let canvas = createCanvas(windowWidth, 0.25 * windowHeight);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('sketch-container');
+  
+  // Set the frame rate to 60 frames per second
+  frameRate(60);
+
+  bezierStartX = windowWidth * 0.025;
+  bezierStartY = 0;
+
+  bezierControl1X = width * 0.05;
+  bezierControl1Y = -height * 0.25;
+
+  bezierControl2X = -width * 0.00;
+  bezierControl2Y = -height * 0.75;
+
+  bezierEndX = width * 0.025;
+  bezierEndY = -height;
+  
+  vertical_navWave = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X, bezierControl1Y, bezierControl2X, bezierControl2Y, bezierEndX, bezierEndY, 0.75, -0.75, "#0e1a40", 5);
+  vertical_lagWave = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X - 5, bezierControl1Y + 10, bezierControl2X - 5, bezierControl2Y - 10, bezierEndX, bezierEndY, 0.75, -0.75, "#ad0932", 5);
+  //vertical_lagWave2 = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X - 10, bezierControl1Y, bezierControl2X - 10, bezierControl2Y - 20, bezierEndX, bezierEndY, 0.75, -0.75, "#707070",5);
 }
 
 function draw() {
   // Set the center of the canvas as the origin (0,0)
-  translate(width / 2, height / 2);
+  translate(width / 10, height / 8);
   // Set y axis to point upwards
   scale(1, -1);
   
@@ -15,7 +99,7 @@ function draw() {
   let timeSecond = second();
   
   // Set constants for the shapes
-  const hexagonRadius = 1/3 * height;
+  const hexagonRadius = 1/12 * height;
   const centerX = 0;
   const centerY = 0;
   const HrAngle = TWO_PI / 24;
@@ -36,7 +120,7 @@ function draw() {
 
 
   // Fill in the hexagon for the current hour
-  c = color('#1a1a1a');
+  c = color('#0022c9');
   fillHourTriangle(timeHour, centerX, centerY, hexagonRadius, HrAngle, c);
 
   c = color(255, 255, 255);
@@ -50,6 +134,19 @@ function draw() {
 
   c = color(250, 42, 0);
   drawMinutes(timeMinute, hexagonRadius, c);
+
+  //drawBezier();
+  //bezierControl1X += 0;
+  //bezierControl2X += 0;
+  //vertical_lagWave2.draw();
+  //vertical_lagWave2.update();
+
+  vertical_lagWave.draw();
+  vertical_lagWave.update();
+
+  vertical_navWave.draw();
+  vertical_navWave.update();
+  
 }
 
 function drawPolygon(numSides, polyCenterX, polyCenterY, radius, internalAngle, polyColor) {
@@ -70,6 +167,7 @@ function drawPolygon(numSides, polyCenterX, polyCenterY, radius, internalAngle, 
 function fillHourTriangle(currentHour, refTipX, refTipY, hexRadius, angle, c) {
   push();
   fill(c);
+  stroke('#D0A0FF');
   beginShape();
   let y1 = refTipY + hexRadius * sin(currentHour * angle);
   let x1 = refTipX + hexRadius * cos(currentHour * angle);
@@ -150,7 +248,8 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
   stroke(c);
   strokeWeight(1.5);
   let xDraw;
-  let yDraw;;
+  let yDraw;
+
   if (currentHour == 1) {
     xDraw = 0 + 0.8 * radius * cos(0);
     yDraw = 0 + 0.8 * radius * sin(0) + 5;
@@ -398,8 +497,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
     yDraw = 0 + 0.2 * radius * sin(2 * TWO_PI / 6) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[2].x * .2, yDraw + sideVectors[2].y * .2);
 
-  } 
-    else if (currentHour == 13) {
+  } else if (currentHour == 13) {
     xDraw = 0 + 0.8 * radius * cos(0);
     yDraw = 0 + 0.8 * radius * sin(0) + 5;
     line(xDraw, yDraw, xDraw + sideVectors[0].x * .8, yDraw + sideVectors[0].y * .8);
@@ -1073,7 +1171,16 @@ function drawMinutes(currentMinute, radius, c) {
   pop();
 }
 
+function drawBezier() {
+  push();
+  noFill();
+  translate(-windowWidth/10, windowHeight/8);
+  stroke(255);
+  bezier(bezierStartX, bezierStartY, bezierControl1X, bezierControl1Y, bezierControl2X, bezierControl2Y, bezierEndX, bezierEndY);
+  pop();
+}
+
 function windowResized() {
-  resizeCanvas(windowWidth, 0.25* windowHeight);
+  resizeCanvas(windowWidth, windowHeight);
   draw();
 }
