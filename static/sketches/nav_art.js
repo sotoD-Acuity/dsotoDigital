@@ -13,9 +13,10 @@ let bezierEndY;
 let vertical_navWave;
 let vertical_lagWave;
 let vertical_lagWave2;
+let horizontal_navWave;
 
 class animated_bezier {
-  constructor(xStart, yStart, xControl1, yControl1, xControl2, yControl2, xEnd, yEnd, delta1, delta2, color, weight) {
+  constructor(xStart, yStart, xControl1, yControl1, xControl2, yControl2, xEnd, yEnd, xDelta1, xDelta2, yDelta1, yDelta2, color, weight) {
     this.xStart = xStart;
     this.yStart = yStart;
     this.xControl1 = xControl1;
@@ -25,8 +26,10 @@ class animated_bezier {
     this.xEnd = xEnd;
     this.yEnd = yEnd;
 
-    this.delta1 = delta1;
-    this.delta2 = delta2;
+    this.xDelta1 = xDelta1;
+    this.xDelta2 = xDelta2;
+    this.yDelta1 = yDelta1;
+    this.yDelta2 = yDelta2;
 
     this.strokeColor = color;
     this.strokeWeight = weight;
@@ -34,30 +37,60 @@ class animated_bezier {
 
   stepControl1x(amplitude) {
     if (this.xControl1 > this.xStart + amplitude || this.xControl1 < this.xStart - amplitude) {
-      this.delta1 = -this.delta1;
+      this.xDelta1 = -this.xDelta1;
     }
-    this.xControl1 += this.delta1;
+    this.xControl1 += this.xDelta1;
   }
 
   stepControl2x(amplitude) {
     if (this.xControl2 > this.xEnd + amplitude || this.xControl2 < this.xEnd - amplitude) {
-      this.delta2 = -this.delta2;
+      this.xDelta2 = -this.xDelta2;
     }
-    this.xControl2 += this.delta2;
+    this.xControl2 += this.xDelta2;
   }
 
-  update() {
+  stepControl1y(amplitude) {
+    if (this.yControl1 > this.yStart + amplitude || this.yControl1 < this.yStart - amplitude) {
+      this.yDelta1 = -this.yDelta1;
+    }
+    this.yControl1 += this.yDelta1;
+  }
+
+  stepControl2y(amplitude) {
+    if (this.yControl2 > this.yEnd + amplitude || this.yControl2 < this.yEnd - amplitude) {
+      this.yDelta2 = -this.yDelta2;
+    }
+    this.yControl2 += this.yDelta2;
+  }
+
+  updateX() {
     this.stepControl1x(50);
     this.stepControl2x(50);
+    //this.stepControl1y(50);
+    //this.stepControl2y(50);
+  }
+
+  updateY() {
+    this.stepControl1y(50);
+    this.stepControl2y(50);
   }
 
   draw() {
     push();
-    translate(-windowWidth/10, windowHeight/8);
+    if (windowWidth < 1024) {
+      translate(-width/2, height/8);
+    }
+    else {
+      translate(-windowWidth/8, windowHeight/8);
+    }
     stroke(this.strokeColor);
     strokeWeight(this.strokeWeight);
-    noFill();
-    //fill(random(0, 255), random(0, 255), random(0, 255));
+
+    if (windowWidth < 1024) {
+      noFill();
+    } else {
+      fill('#0e1a40');
+    }
     bezier(this.xStart, this.yStart, this.xControl1, this.yControl1, this.xControl2, this.yControl2, this.xEnd, this.yEnd);
     pop();
   }
@@ -82,14 +115,24 @@ function setup() {
   bezierEndX = width * 0.025;
   bezierEndY = -height;
   
-  vertical_navWave = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X, bezierControl1Y, bezierControl2X, bezierControl2Y, bezierEndX, bezierEndY, 0.75, -0.75, "#0e1a40", 5);
-  vertical_lagWave = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X - 5, bezierControl1Y + 10, bezierControl2X - 5, bezierControl2Y - 10, bezierEndX, bezierEndY, 0.75, -0.75, "#ad0932", 5);
+  vertical_navWave = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X, bezierControl1Y, bezierControl2X, bezierControl2Y, bezierEndX, bezierEndY, 0.25, -0.25, 0, 0, "#23B5D3", 1);
+  vertical_lagWave = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X - 5, bezierControl1Y + 10, bezierControl2X - 5, bezierControl2Y - 10, bezierEndX, bezierEndY, 0.25, -0.25, 0, 0, "#0e1a40", 5);
+
+  r_vertical_navWave = new animated_bezier(width - bezierStartX, 0, width - bezierControl1X, -height * 0.25, width - bezierControl2X, -height * 0.75, width - bezierEndX, -height, -0.25, 0.25, 0, 0, "#23B5D3", 1);
+  r_vertical_lagWave = new animated_bezier(width - bezierStartX, 0, width - bezierControl1X + 5, -height * 0.25 + 10, width - bezierControl2X + 5, -height * 0.75 - 10, width - bezierEndX, -height, -0.25, 0.25, 0, 0, "#0e1a40", 5);
+  
+  horizontal_navWave = new animated_bezier(0, -0.24*height, 0.25*width, -0.24*height + 10, 0.75*width, -0.24*height - 10, width, -0.24*height, 0, 0, -.10, .10, "#23B5D3", 1);
+  horizontal_lagWave = new animated_bezier(0, -0.24*height, 0.25*width - 10, -0.24*height + 10, 0.75*width - 10, -0.24*height - 10, width, -0.24*height, 0, 0, .10, -.10, "#ffa0a0", 1);
   //vertical_lagWave2 = new animated_bezier(bezierStartX, bezierStartY, bezierControl1X - 10, bezierControl1Y, bezierControl2X - 10, bezierControl2Y - 20, bezierEndX, bezierEndY, 0.75, -0.75, "#707070",5);
 }
 
 function draw() {
-  // Set the center of the canvas as the origin (0,0)
-  translate(width / 10, height / 8);
+  // Set the origin to the top left corner, specifically the center of the hexagon at 1/10th the width and 1/8th the height
+  if (windowWidth < 1024) {
+    translate(width/2, height/9);
+  } else {
+    translate(width / 8, height / 8);
+  }
   // Set y axis to point upwards
   scale(1, -1);
   
@@ -106,6 +149,24 @@ function draw() {
   const hexagonAngle = TWO_PI / 6;
 
   background(0);
+  //qdottedBG();
+
+  if (windowWidth < 1024) {
+    vertical_lagWave.draw();
+    vertical_lagWave.updateX();
+    vertical_navWave.draw();
+    vertical_navWave.updateX();
+    r_vertical_navWave.draw();
+    r_vertical_navWave.updateX();
+    r_vertical_lagWave.draw();
+    r_vertical_lagWave.updateX();
+  } else {
+    horizontal_navWave.draw();
+    horizontal_navWave.updateY();  
+    horizontal_lagWave.draw();
+    horizontal_lagWave.updateY();
+  }
+  
 
   // Draw the background hexagon
   let c = color('#0e1a40');
@@ -118,35 +179,45 @@ function draw() {
   vectorSide6 = createVector(hexVerticies[0][0] - hexVerticies[5][0], hexVerticies[0][1] - hexVerticies[5][1]);
   let sideVectors = [vectorSide1, vectorSide2, vectorSide3, vectorSide4, vectorSide5, vectorSide6];
 
+  push();
+  stroke('#F29559');
+  strokeWeight(0.5);
+  line(0, 0, hexVerticies[0][0], hexVerticies[0][1]);
+  line(0, 0, hexVerticies[2][0], hexVerticies[2][1]);
+  line(0, 0, hexVerticies[4][0], hexVerticies[4][1]);
+  pop();
 
   // Fill in the hexagon for the current hour
-  c = color('#0022c9');
+  c = color('#0e1a40');
   fillHourTriangle(timeHour, centerX, centerY, hexagonRadius, HrAngle, c);
 
-  c = color(255, 255, 255);
+  c = color("#DDFFDD");
   drawSecondsPerimeter(timeSecond, hexVerticies, sideVectors, c);
 
   // Draw the hours passed
-  c = color(250, 42, 0);
+  c = color("#F29559");
   hoursPassed(timeHour, hexagonRadius, sideVectors, c);
 
   drawTicks(hexagonRadius);
 
-  c = color(250, 42, 0);
+  c = color("#F29559");
   drawMinutes(timeMinute, hexagonRadius, c);
+}
 
-  //drawBezier();
-  //bezierControl1X += 0;
-  //bezierControl2X += 0;
-  //vertical_lagWave2.draw();
-  //vertical_lagWave2.update();
-
-  vertical_lagWave.draw();
-  vertical_lagWave.update();
-
-  vertical_navWave.draw();
-  vertical_navWave.update();
-  
+function dottedBG() {
+  push();
+  if (windowWidth < 1024) {
+    return;
+  } else {
+    translate(-width / 8, -height / 8);
+  }
+  for (let x = 0; x < width; x += 20) {
+    for (let y = 0; y > -height; y -= 20) {
+      fill('#0e1a40');
+      triangle(x, y, x + 5, y - 10, x + 10, y);
+    }
+  }
+  pop();
 }
 
 function drawPolygon(numSides, polyCenterX, polyCenterY, radius, internalAngle, polyColor) {
@@ -167,7 +238,8 @@ function drawPolygon(numSides, polyCenterX, polyCenterY, radius, internalAngle, 
 function fillHourTriangle(currentHour, refTipX, refTipY, hexRadius, angle, c) {
   push();
   fill(c);
-  stroke('#D0A0FF');
+  stroke('#DDFFDD');
+  strokeWeight(0.25);
   beginShape();
   let y1 = refTipY + hexRadius * sin(currentHour * angle);
   let x1 = refTipX + hexRadius * cos(currentHour * angle);
@@ -184,11 +256,10 @@ function fillHourTriangle(currentHour, refTipX, refTipY, hexRadius, angle, c) {
 
 function drawSecondsPerimeter(currentSecond, hexVerticies, sideVectors, c) {
   push();
-  strokeWeight(2);
+  strokeWeight(1.25);
   stroke(c);
   let xDraw;
   let yDraw;
-  let seconds;
   if (currentSecond < 10) {
     // Get the seconds that we need to draw in this section.
     xDraw = hexVerticies[0][0] + 5;
@@ -246,7 +317,7 @@ function drawSecondsPerimeter(currentSecond, hexVerticies, sideVectors, c) {
 function hoursPassed(currentHour, radius, sideVectors, c) {
   push();
   stroke(c);
-  strokeWeight(1.5);
+  strokeWeight(1.25);
   let xDraw;
   let yDraw;
 
@@ -1141,7 +1212,7 @@ function hoursPassed(currentHour, radius, sideVectors, c) {
 
 function drawTicks(radius) {
   push();
-  stroke(255);
+  stroke('#F29559');
   strokeWeight(2);
   for (let i = 0; i < 12; i++) {
     let x1 = 1.15 * radius * cos(i * TWO_PI / 12);
@@ -1156,7 +1227,7 @@ function drawTicks(radius) {
 function drawMinutes(currentMinute, radius, c) {
   push();
   stroke(c);
-  strokeWeight(2);
+  strokeWeight(.5);
   fill(c);
   for (let i = 1; i < currentMinute + 1; i++) {
     let x1 = 1.15 * radius * cos(i * TWO_PI / 60);
@@ -1167,7 +1238,8 @@ function drawMinutes(currentMinute, radius, c) {
   }
   let xDraw = 1.15 * radius * cos(currentMinute * TWO_PI / 60);
   let yDraw = 1.15 * radius * sin(currentMinute * TWO_PI / 60);
-  ellipse(xDraw, yDraw, 5, 5);
+  fill("#23B5D3");
+  ellipse(xDraw, yDraw, 4, 4);
   pop();
 }
 

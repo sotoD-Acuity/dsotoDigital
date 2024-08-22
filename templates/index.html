@@ -14,100 +14,19 @@
     <title>D. Soto</title>
 </head>
 
-<body class="bg-black max-h-full min-w-full flex-col">
+<body class="bg-black max-h-full max-w-full">
 
-    <header class="relative flex-col space-y-5 md:flex lg:w-full lg:h-[25%]">
-        <div id="sketch-container" class="absolute w-full top-5 lg:top-0">
+    <header class="relative flex-col space-y-4 md:flex lg:max-w-full lg:h-[25vh]">
+        <div id="sketch-container" class="absolute max-w-full lg:top-0">
             <script src="/static/sketches/nav_art.js"></script>
         </div>
 
-        <h1 class="absolute justify-start w-full -top-[5%] lg:-left-[5%] lg:-top-[7%] lg:text-6xl text-cyan-300 hover:text-orange-100 font-thin italic font-sans">Nosce te ipsum | Know Thyself</h1>
-
-        <image class="absolute -translate-x-40 scale-[50%] lg:left-[13%] lg:top-[10%] lg:scale-[42%]" src="/static/media/dsotoClear.png"></image>
-
-        <nav class="relative top-52 w-full bg-slate-400">
-            <ul class="flex lg:justify-end sm:space-x-20 sm:px-5">
-                
-                <li class="fixed -skew-y-2 scale-90 left-[1.25%] top-[25%] h-fit w-fit px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
-                    <a href="/contact" class="inline-block px-[1em] py-[0.25em] rounded-full border-[0.5px] font-thin font-sans italic text-lg text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Contact
+        <nav class="overflow-x-clip">
+            <ul class="z-50 grid grid-cols-[1fr_1fr] relative top-[1vh] gap-2 lg:grid-cols-[10%_10%_10%_10%_10%_10%] lg:justify-items-start lg:top-[20vh] lg:left-[20vw]">
+                <li class="-skew-y-2 scale-100 h-fit w-40 px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
+                    <a href="/experience" class="inline-flex px-[25vw] py-[.10em] rounded-full font-thin font-sans italic text-xl text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Contact
                         <svg
-                            class="w-6 h-6 group-hover:translate-x-[20%] duration-300"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            viewBox="0 0 24 24"
-                            fill="white"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                                stroke-linejoin="round"
-                                stroke-linecap="round"
-                            ></path>
-                        </svg>
-                    </a>
-                </li>
-                
-                <li class="fixed -skew-y-2 scale-90 left-[-4.5%] top-[32%] h-fit w-fit px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
-                    <a href="/home" class="inline-block px-[1em] py-[0.25em] rounded-full border-[0.5px] font-thin font-sans italic text-lg text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Home
-                        <svg
-                            class="w-6 h-6 group-hover:translate-x-[150%] duration-300"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            viewBox="0 0 24 24"
-                            fill="white"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                                stroke-linejoin="round"
-                                stroke-linecap="round"
-                            ></path>
-                        </svg>
-                    </a>
-                </li>
-    
-                <li class="fixed -skew-y-2 scale-90 left-[-4.75%] top-[39%] h-fit w-fit px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
-                    <a href="/projects" class="inline-block px-[1em] py-[0.25em] rounded-full border-[0.5px] font-thin font-sans italic text-lg text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Projects
-                        <svg
-                            class="w-6 h-6 group-hover:translate-x-[150%] duration-300"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            viewBox="0 0 24 24"
-                            fill="white"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                                stroke-linejoin="round"
-                                stroke-linecap="round"
-                            ></path>
-                        </svg>
-                    </a>
-                </li>
-    
-                <li class="fixed -skew-y-2 scale-90 left-[-5%] top-[46%] h-fit w-fit px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
-                    <a href="/education" class="inline-block px-[1em] py-[0.25em] rounded-full border-[0.5px] font-thin font-sans italic text-lg text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Education
-                        <svg
-                            class="w-6 h-6 group-hover:translate-x-[175%] duration-300"
-                            stroke="currentColor"
-                            stroke-width="1"
-                            viewBox="0 0 24 24"
-                            fill="white"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                                stroke-linejoin="round"
-                                stroke-linecap="round"
-                            ></path>
-                        </svg>
-                    </a>
-                </li>
-
-                <li class="fixed -skew-y-2 scale-90 left-[-5.25%] top-[53%] h-fit w-fit px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
-                    <a href="/experience" class="inline-block px-[1em] py-[0.25em] rounded-full border-[0.5px] font-thin font-sans italic text-lg text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Experience
-                        <svg
-                            class="w-6 h-6 group-hover:translate-x-[200%] duration-300"
+                            class="absolute right-1 w-8 h-6 pt-1 group-hover:translate-x-[25%] duration-300"
                             stroke="currentColor"
                             stroke-width="1"
                             viewBox="0 0 24 24"
@@ -123,10 +42,84 @@
                     </a>
                 </li>
 
-                <li class="fixed -skew-y-2 scale-90 left-[-5.75%] top-[59.75%] h-fit w-fit px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
-                    <a href="/me" class="inline-block px-[1em] py-[0.25em] rounded-full border-[0.5px] font-thin font-sans italic text-lg text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Hobbies, Interests, & More
+                <li class="justify-self-end lg:justify-self-auto lg:-skew-y-2 skew-y-2 scale-100 h-fit w-40 px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
+                    <a href="/me" class="inline-flex text-nowrap px-[25vw] py-[.10em] rounded-full font-thin font-sans italic text-xl text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Home
                         <svg
-                            class="w-6 h-6 group-hover:translate-x-[200%] duration-300"
+                            class="absolute right-1 w-8 h-6 pt-1 group-hover:translate-x-[25%] duration-300"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                        ></path>
+                        </svg>
+                    </a>
+                </li>
+
+                <li class="-skew-y-2 scale-100 h-fit w-40 px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
+                    <a href="/projects" class="inline-flex px-[25vw] py-[.10em] rounded-full font-thin font-sans italic text-xl text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Projects
+                        <svg
+                            class="absolute right-1 w-8 h-6 pt-1 group-hover:translate-x-[25%] duration-300"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                        ></path>
+                        </svg>
+                    </a>
+                </li>
+
+                <li class="justify-self-end lg:justify-self-auto lg:-skew-y-2 skew-y-2 scale-100 h-fit w-40 px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
+                    <a href="/education" class="inline-flex px-[25vw] py-[.10em] rounded-full font-thin font-sans italic text-xl text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Education
+                        <svg
+                            class="absolute right-1 w-8 h-6 pt-1 group-hover:translate-x-[25%] duration-300"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                                stroke-linejoin="round"
+                                stroke-linecap="round"
+                            ></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="-skew-y-2 scale-100 h-fit w-40 px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
+                    <a href="/experience" class="inline-flex px-[25vw] py-[.10em] rounded-full font-thin font-sans italic text-xl text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">Experience
+                        <svg
+                            class="absolute right-1 w-8 h-6 pt-1 group-hover:translate-x-[25%] duration-300"
+                            stroke="currentColor"
+                            stroke-width="1"
+                            viewBox="0 0 24 24"
+                            fill="white"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                            stroke-linejoin="round"
+                            stroke-linecap="round"
+                        ></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="justify-self-end lg:justify-self-auto lg:-skew-y-2 skew-y-2 scale-100 h-fit w-40 px-[0] py-[0] border-[1px] hover:bg-cyan-900 hover:bg-opacity-50 border-[#ffa0a0] hover:border-cyan-200 hover:animate-pulse rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
+                    <a href="/me" class="inline-flex text-nowrap px-[25vw] py-[.10em] rounded-full font-thin font-sans italic text-xl text-[#ffa0a0] hover:bg-cyan-900 hover:bg-opacity-0 hover:text-cyan-200 hover:animate-pulse duration-300 active:scale-105">About Me
+                        <svg
+                            class="absolute right-1 w-8 h-6 pt-1 group-hover:translate-x-[25%] duration-300"
                             stroke="currentColor"
                             stroke-width="1"
                             viewBox="0 0 24 24"
@@ -144,36 +137,27 @@
             </ul>
         </nav>
 
-        <div class="absolute right-10 top-[325%] -skew-y-0 drop-shadow-xl w-[50%] h-32 overflow-hidden rounded-xl bg-[#FFA0A0]">
-            <div class="absolute font-sans font-thin flex items-center justify-center text-cyan-300 z-[1] opacity-90 rounded-xl inset-0.5 bg-[#00001a] text-center flex-col">
-                <p>Welcome to dsotodigital. Here, I share my experiences and the skills I've accumulated for anyone to explore. From full-stack development or MS Excel to impromptu speaking or playing an instrument...</p>
-                <p class="text-[#FFA0A0]">I'm driven by opportunities to continue learning and growing, and I'm ready to help. Don't hesitate to reach out!</p>
-            </div>
-            <!--div class="absolute w-56 h-48 bg-[#ff1e1e] blur-[50px] -left-1/2 -top-1/2"></div-->
-            <div class="absolute w-56 h-48 bg-[#D0A0FF] blur-[50px] -left-1/4 -top-1/2"></div>
-        </div>
-        
+        <section class="absolute ring-1 grid grid-cols-[50vw_25vw] bg-gradient-to-t rounded-md from-[#042DAD] to-[50%] text-cyan-50 w-[75vw] left-[20vw] m-0 p-0">
+            <p class="relative top-1 px-2 justify-self-start font-sans text-2xl">I'm <span class="inline-flex text-3xl font-light text-[#ffa0a0]">Diego</span>, the developer of dsotodigital.<br>
+            <span class="text-xl">My curiosity pushes to go further every day. Here, I share what I've learned on an interactive platform so that you can get to know my technical background and mindset better.</span>
+            </p>
+            <img src="/static/media/dsotoClear.png" alt="Signed, Diego A. Soto" class="relative rounded-full max-w-[18vw] h-auto self-end justify-self-end pt-5 pb-5 pr-5">
+        </section>
+
     </header>
 
     
-    <main class="absolute">
-        
-
-        <!--div class="flex px-20 py-5 justify-evenly space-x-0 text-balance rounded-full">
-            <p class="text-left -skew-y-2 text-cyan-50">The site's clock is drawn using p5.js, a javascript library packed with functions used in js sketches to define 2D/3D interactive graphics.</p>
-            <p class="text-left -skew-y-2 text-cyan-50">Most of the site's styling is done using Tailwind CSS, preset classes that anyone can utilize to style or elements inside html code.</p>
+    <main class="absolute max-w-full">
+        <div class="relative top-5 grid grid-cols-[25vw_50vw_25vw]">
+            <p></p>
+            <pr class="rounded-sm ring-1 bg-gradient-to-b from-[#042DAD] text-[#DDFFDD]">There's a 24hr analog clock at the top of the screen.
+            <br>It's a simple way to show the time in a more interactive way.
+            <br>The minutes and seconds surround the clock. Start on the `EAST` side, the `NORTH` is 1/4 of the way around the clock, and the `WEST` is 1/2 way around the clock.
+            <br>On the perimeter of the hexagon, line is drawn longer with each second. The current minute is represented by a dot at the end of the counter-clockwise ticks.
+            <br>As the hours pass, a new line is drawn inside of the hexagon. The first 4 hour lines appear on the upper-right segment of the clock. The next 4 appear on the upper-center segment of the clock. At noon, the first half of the day is displayed on the clock.
+            </p>
+            <p></p>
         </div>
-
-        <div class="flex px-20 py-10 text-balance text-balancs -skew-y-2 ">
-            <p class="relative left-20 text-left text-cyan-50">The site's content is written in HTML and CSS, and the site is hosted on a DigitalOcean cloud server.</p>
-            <p class="text-left p-0 text-cyan-50">The site's backend is written in Python using the Flask framework.</p>
-        </div>
-
-        <p class="text-center text-orange-100">About the clock: It's a 6-sided, 24-hr analog clock.</p>
-        <p class="text-center text-3xl text-orange-100">The clock's face is a hexagon, with each sector containing 4 hour lines.</p>
-        <p class="text-center text-cyan-200"Think of the compass cardinal rose, the clock begins in the east. As the day passes, the triangle will move counter clock-wise and the hour lines will start filling in along the hexagonal pattern.</p>
-        <p class="text-center text-orange-100">The clock's face is surrounded by a continuous second "hand" that flows along each of the 6 sides. At the start of a minute, there is no visible second as it has not passed. Outside of the second hands are the minutes. Similar to a traditional analog clock, the ticks represent 5 minute intervals along the current hour.</p>
-        <p class="text-center text-orange-100">When noon comes to pass, we see the top half of the hexagon filled in with 12 hour lines. 1 PM will fill in the first hour line in the thrid quadrant of the day.</p-->
     </main>
 
     <footer class="fixed place-content-center text-center bottom-0 bg-slate-950 w-full text-nowrap text-cyan-50 ">&copy; 2024 Diego A. Soto | All Rights Reserved.
