@@ -7,21 +7,22 @@
     <meta name="author" content="Diego A. Soto">
     <link rel="stylesheet" href="/static/src/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/tgl7nhh.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!--script src="https://cdn.tailwindcss.com"></script-->
 
-    <script src="/static/lib/p5.min.js"></script>
-    <script src="/static/lib/p5.sound.min.js"></script>
+    <script src="/dsotoDigital/static/lib/p5.min.js"></script>
+    <script src="/dsotoDigital/static/lib/p5.sound.js"></script>
     <title>D. Soto</title>
 </head>
 
 <body class="bg-black">
 
     <header class="relative flex-col space-y-2 md:flex lg:max-w-full lg:h-[25vh]">
-        <div id="sketch-container" class="absolute max-w-full lg:top-0">
-            <script src="\static\sketches\nav_art.js"></script>
+        <div id="sketch-container" class="absolute max-w-full left-[0vw]">
+            <script src="/dsotoDigital/static/sketches/nav_art.js"></script>
         </div>
+        
         /* From Uiverse.io by EcheverriaJesus */ 
-        <section class="absolute top-[16vh] flex justify-center items-center">
+        <section class="absolute top-[5vh] sm:top-[16vh] left-5 flex justify-center items-center">
             <a href="aboutClock.html" class="group flex justify-center transition-all rounded-full bg-gray-200 p-1">
                 <svg viewBox="0 0 320 512" class="w-4 h-4">
                     <path
@@ -29,23 +30,9 @@
                     ></path>
                 </svg>
                 <span
-                    class="absolute w-32 opacity-0 group-hover:opacity-100 group-hover:-translate-y-4 group-hover:translate-x-12 duration-700 text-sm"
-                >This is a clock!
+                    class="absolute w-32 opacity-0 group-hover:opacity-100 group-hover:-translate-y-6 group-hover:translate-x-10 duration-700 text-sm text-white"
+                >This is a clock! ->
                 </span>
-                <svg
-                    class="absolute right-[-50%] top-[50%] w-8 h-6 pt-1 opacity-0 group-hover:opacity-100 group-hover:-translate-y-4 group-hover:translate-x-12 duration-700"
-                    stroke="currentColor"
-                    stroke-width="1"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                        stroke-linejoin="round"
-                        stroke-linecap="round"
-                    ></path>
-                </svg>
             </a>
         </section>
 
@@ -167,11 +154,11 @@
             </ul>
         </nav>
 
-        <section class="relative lg:grid-cols-[50vw_25vw] grid ring-1 top-[25vh] sm:top-[15vh] lg:top-[-10%] w-[90vw] sm:w-[75vw] left-[5vw] sm:left-[12.5vw] lg:left-[24.5vw] m-0 p-0 bg-gradient-to-t rounded-md from-[#042ead96] to-[50%] text-cyan-50">
-            <p class="font-sans lg:relative lg:top-3 lg:px-1 lg:justify-self-start lg:text-2xl">Welcome, I'm <span class="inline-flex text-sxl font-normal">Diego</span>. I built this space so that we could connect seamlessly and intuitively.<br>
-            <span class="text-2xl">It's for sharing my insights and curiosity so that we may envision something greater together. If what I share is interesting or useful to you, reach out! I want to hear from you!</span>
+        <section class="relative lg:grid-cols-[50vw_25vw] grid ring-1 top-[22vh] sm:top-[15vh] lg:top-[-4em] w-[90vw] sm:w-[75vw] left-[5vw] sm:left-[12.5vw] lg:left-[24.5vw] m-0 p-0 bg-gradient-to-t rounded-md from-[#042ead96] to-[50%] text-cyan-50">
+            <p class="font-sans text-md lg:relative lg:top-0 lg:px-1 lg:justify-self-start lg:text-2xl">Welcome, I'm <span class="inline-flex text-sxl font-normal">Diego</span>. I built this space so that we could connect seamlessly and intuitively.<br>
+            <span class="text-md lg:text-2xl">It's for sharing my insights and curiosity so that we may envision something greater together. If what I share is interesting or useful to you, reach out! I want to hear from you!</span>
             </p>
-            <img src="/static/media/dsotoClear.png" alt="Signed, Diego A. Soto" class="absolute lg:relative rounded-full w-[25vw] sm:max-w-[18vw] h-auto sm:right-0 -top-44 sm:-top-20 lg:top-0 lg:self-end sm:justify-self-end lg:pt-5 lg:pb-5 lg:pr-5">
+            <img src="/dsotoDigital/static/media/dsotoClear.png" alt="Signed, Diego A. Soto" class="absolute lg:relative rounded-full w-[25vw] sm:max-w-[18vw] h-auto sm:right-0 -top-48 sm:-top-20 lg:top-0 lg:self-end sm:justify-self-end lg:pt-5 lg:pb-5 lg:pr-5">
         </section>
 
     </header>
@@ -179,7 +166,7 @@
     
 
 
-    <main class="absolute top-[65%] lg:top-[35%] max-w-full">
+    <main class="absolute top-[60vh] lg:top-[35%] max-w-full">
         <div class="relative lg:top-5 grid grid-cols-[10vw_1fr_10vw]">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in ullamcorper orci, nec consectetur mi. Vivamus sed augue ut massa fermentum tristique. Phasellus rutrum risus et sagittis ultrices. Duis malesuada feugiat egestas. In lectus neque, malesuada sed varius at, mattis non eros. Cras quis faucibus tortor. Donec elementum vitae magna.</p>
             <p class="rounded-sm ring-1 ring-[#071013] bg-gradient-to-b from-[#7438388d] to-slate-950 text-[#DDFFDD] to-[30%]">This is a 24hr analog clock. It's consists of a clockface with hourlines, an hour triangle, minute ticks, a minute dot, and a second marker.
@@ -193,7 +180,7 @@
         </div>
     </main>
 
-    <footer class="fixed place-content-center text-center bottom-0 bg-slate-950 w-full text-nowrap text-cyan-50 text-sm sm:text-base">&copy; 2024 Diego A. Soto | All Rights Reserved.
+    <footer class="fixed place-content-center text-center bottom-0 bg-slate-950 w-full text-nowrap text-cyan-50 text-sm sm:text-base">&copy; 2025 Diego A. Soto | All Rights Reserved.
     </footer>
 
 </body>
